@@ -44,5 +44,5 @@ const dog = {
 //After I have transform the data from Javascript to JSON, then another language can parse upon receiving it, into its own syntax
 let newInfoDog = JSON.stringify(dog);
 
-//APIS respond with JSON, we the can pass that JSON and use it as a Javascript object.
+//APIS respond with JSON, we the can pass that JSON and use it as a javasscript 
 
