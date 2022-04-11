@@ -14,24 +14,51 @@
 
 
 //Return a Promise after a second with setTimeOut function
-const fakeRequestPromise = (url) => {
+// const fakeRequestPromise = (url) => {
+//     return new Promise((resolve, reject) => {
+//         const delay = Math.floor(Math.random() * (4000)) + 500;
+//         setTimeout(() => {
+//             if (delay > 4000) {
+//                 reject('Connection timeout');
+//             } else {
+//                 resolve(`Here is your fake data from ${url}`);
+//             }
+//         }, delay)
+//     })
+// }
+
+// fakeRequestPromise('dogs.com/API/food')
+//     .then((data) => {
+//         console.log('Done with request.')
+//         console.log(`Data is:`, data);
+//     })
+//     .catch((err) => {
+//         console.log(`Error 404`, err);
+//     })
+
+
+//Color change function using Promises
+
+const delayedColorChange = (color, delay) => {
     return new Promise((resolve, reject) => {
-        const delay = Math.floor(Math.random() * (4000)) + 500;
         setTimeout(() => {
-            if (delay > 4000) {
-                reject('Connection timeout');
-            } else {
-                resolve(`Here is your fake data from ${url}`);
-            }
+            document.body.style.backgroundColor = color;
+            resolve();
         }, delay)
     })
 }
 
-fakeRequestPromise('dogs.com/API/food')
-    .then((data) => {
-        console.log('Done with request.')
-        console.log(`Data is:`, data);
-    })
-    .catch((err) => {
-        console.log(`Error 404`, err);
-    })
+//You can return the function with this syntax
+// delayedColorChange('red', 1000)
+//     .then(() => {
+//         return delayedColorChange('orange', 1000);
+//     })
+
+//You can return the function with implicit return
+delayedColorChange('red', 1000)
+    .then(() => delayedColorChange('orange', 1000))
+    .then(() => delayedColorChange('yellow', 1000))
+    .then(() => delayedColorChange('green', 1000))
+    .then(() => delayedColorChange('blue', 1000))
+    .then(() => delayedColorChange('indigo', 1000))
+    .then(() => delayedColorChange('violet', 1000))
