@@ -92,26 +92,50 @@ const delayedColorChange = (color, delay) => {
 // }
 
 //The await keyword comes with its calvery to save the day
-async function rainbow() {
-    await delayedColorChange('red', 1000) // This will wait until the Promise is result, and the pass onto the next line of code.
-    await delayedColorChange('orange', 1000)
-    await delayedColorChange('yellow', 1000)
-    await delayedColorChange('green', 1000)
-    await delayedColorChange('blue', 1000)
-    await delayedColorChange('indigo', 1000)
-    await delayedColorChange('violet', 1000)
-    return 'All done!'
+// async function rainbow() {
+//     await delayedColorChange('red', 1000) // This will wait until the Promise is result, and the pass onto the next line of code.
+//     await delayedColorChange('orange', 1000)
+//     await delayedColorChange('yellow', 1000)
+//     await delayedColorChange('green', 1000)
+//     await delayedColorChange('blue', 1000)
+//     await delayedColorChange('indigo', 1000)
+//     await delayedColorChange('violet', 1000)
+//     return 'All done!'
+// }
+
+// // rainbow().then(data => console.log('End of rainbow!'))
+
+
+// async function printRainbow() {
+//     await rainbow(); // It waits for the rainbow function to be executed, and then prints the console message.
+//     console.log('End of rainbow!');
+// }
+
+// printRainbow();
+
+
+//Fake request function
+const fakeRequest = (url) => {
+    return new Promise((resolve, reject) => {
+        const delay = Math.floor(Math.random() * (4000)) + 500;
+        setTimeout(() => {
+            if (delay > 4000) {
+                reject('Connection Timeout!');
+            } else {
+                resolve(`Here is your fake data from ${url}`);
+            }
+        }, delay)
+    })
 }
 
-// rainbow().then(data => console.log('End of rainbow!'))
-
-
-async function printRainbow() {
-    await rainbow(); // It waits for the rainbow function to be executed, and then prints the console message.
-    console.log('End of rainbow!');
+async function makeTwoRequest() {
+    try {
+        let data1 = await fakeRequest('/page1');
+        console.log(data1);
+        let data2 = await fakeRequest('/page2');
+        console.log(data2);
+    } catch (err) {
+        console.log('Caught an error!');
+        console.log('Error is:', err);
+    }
 }
-
-printRainbow();
-
-
-//
