@@ -77,12 +77,41 @@ const delayedColorChange = (color, delay) => {
     })
 }
 
-delayedColorChange('red', 1000)
-    .then(() => delayedColorChange('blue', 1000))
-    .then(() => delayedColorChange('yellow', 1000))
-    .then(() => delayedColorChange('indigo', 1000))
-    .then(() => delayedColorChange('cyan', 1000))
-    .then(() => delayedColorChange('violet', 1000))
-    .then(() => delayedColorChange('paleblue', 1000))
+// delayedColorChange('red', 1000)
+//     .then(() => delayedColorChange('blue', 1000))
+//     .then(() => delayedColorChange('yellow', 1000))
+//     .then(() => delayedColorChange('indigo', 1000))
+//     .then(() => delayedColorChange('cyan', 1000))
+//     .then(() => delayedColorChange('violet', 1000))
+//     .then(() => delayedColorChange('paleblue', 1000))
 
 
+// async function rainbow() {
+//     delayedColorChange('red', 1000)
+//     delayedColorChange('blue', 1000) // This won't work because they are being executed at the same time, blue will win over red in this caser
+// }
+
+//The await keyword comes with its calvery to save the day
+async function rainbow() {
+    await delayedColorChange('red', 1000) // This will wait until the Promise is result, and the pass onto the next line of code.
+    await delayedColorChange('orange', 1000)
+    await delayedColorChange('yellow', 1000)
+    await delayedColorChange('green', 1000)
+    await delayedColorChange('blue', 1000)
+    await delayedColorChange('indigo', 1000)
+    await delayedColorChange('violet', 1000)
+    return 'All done!'
+}
+
+// rainbow().then(data => console.log('End of rainbow!'))
+
+
+async function printRainbow() {
+    await rainbow(); // It waits for the rainbow function to be executed, and then prints the console message.
+    console.log('End of rainbow!');
+}
+
+printRainbow();
+
+
+//
