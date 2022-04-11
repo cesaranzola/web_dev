@@ -13,19 +13,19 @@ const fakeRequestPromise = (url) => {
 
 fakeRequestPromise('yelp.com/food/API/coffee/pag1')
     .then((data) => {
-        console.log('It worked. (page 1)');
-        console.log(data);
-        return fakeRequestPromise('yelp.com/food/API/coffee/pag2');
+        console.log('It worked! (page 1)');
+        console.log(data)
+        return fakeRequestPromise('yelp.com/food/API/coffee/pag2')
     })
     .then((data) => {
-        console.log('It worked. (page 2');
+        console.log('It worked! (page 2)');
         console.log(data);
         return fakeRequestPromise('yelp.com/food/API/coffee/pag3')
     })
     .then((data) => {
-        console.log('It worked. (page 3)');
+        console.log('It worked! (page 3');
         console.log(data);
     })
     .catch((reject) => {
-        console.log('Error.', reject);
+        console.log('Error. Unsuccessful retreival of data.', reject)
     })
