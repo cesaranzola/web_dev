@@ -24,11 +24,25 @@
 // })
 
 //How to throw new Error(argument) with a Async fucntion (arrow function syntax)
-const singReloaded = async () => {
-    throw new Error('I sing just like Bob Dylan'); // if a throw an error inside an Async Functon, the promise won't resolve
+// const singReloaded = async () => {
+//     throw new Error('I sing just like Bob Dylan'); // if a throw an error inside an Async Functon, the promise won't resolve
+//     return 'Do do do do do'
+// }
+// singReloaded().then((data) => {
+//     console.log('Promise resolved with data:', data)
+// })
+
+//Abbreviated syntax for throwing an error
+const singThird = async () => {
+    throw 'You sing like a cat'
     return 'Do do do do do'
 }
-singReloaded().then((data) => {
-    console.log('Promise resolved with data:', data)
-})
 
+singThird()
+    .then((data) => {
+        console.log('Promise resolved with:', data);
+    })
+    .catch((err) => {
+        console.log('Promise rejected');
+        console.log(err);
+    })
