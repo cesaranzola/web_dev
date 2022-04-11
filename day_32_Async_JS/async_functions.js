@@ -120,7 +120,7 @@ const fakeRequest = (url) => {
         const delay = Math.floor(Math.random() * (4000)) + 500;
         setTimeout(() => {
             if (delay > 4000) {
-                reject('Connection Timeout!');
+                reject('Connection timeout');
             } else {
                 resolve(`Here is your fake data from ${url}`);
             }
@@ -128,14 +128,16 @@ const fakeRequest = (url) => {
     })
 }
 
-async function makeTwoRequest() {
+async function makeTwoRequests() {
     try {
-        let data1 = await fakeRequest('/page1');
+        let data1 = await fakeRequest('lancelot/API/swords/pag1')
         console.log(data1);
-        let data2 = await fakeRequest('/page2');
+        let data2 = await fakeRequest('lancelot/API/swords/pag2')
         console.log(data2);
     } catch (err) {
-        console.log('Caught an error!');
-        console.log('Error is:', err);
+        console.log('Error caught!');
+        console.log(err);
     }
 }
+
+makeTwoRequests();
