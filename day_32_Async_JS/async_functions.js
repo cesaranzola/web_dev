@@ -33,16 +33,33 @@
 // })
 
 //Abbreviated syntax for throwing an error
-const singThird = async () => {
-    throw 'You sing like a cat'
-    return 'Do do do do do'
+// const singThird = async () => {
+//     throw 'You sing like a cat'
+//     return 'Do do do do do'
+// }
+
+// singThird()
+//     .then((data) => {
+//         console.log('Promise resolved with:', data);
+//     })
+//     .catch((err) => {
+//         console.log('Promise rejected');
+//         console.log(err);
+//     })
+
+
+const login = async (username, password) => {
+    if (!username || !password) throw 'Missing credentials'
+    if (password === 'rockingInTheFreeWorld') return 'Welcome again!'
+    throw 'Invalid password'
 }
 
-singThird()
-    .then((data) => {
-        console.log('Promise resolved with:', data);
+login('pepo', 'rockingInTheFreeWorld')
+    .then((msg) => {
+        console.log('Logged In');
+        console.log(msg);
     })
     .catch((err) => {
-        console.log('Promise rejected');
+        console.log('Error 650');
         console.log(err);
     })
