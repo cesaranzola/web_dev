@@ -26,13 +26,14 @@
 
 
 //Fetch with an Async Function
+
+
 const fetchSeriesEpisode = async () => {
     try {
-        const res = await fetch(' https://api.tvmaze.com/shows/1/episodesbydate?date=2013-07-01')
+        const res = await fetch('https://api.tvmaze.com/shows/1/episodesbydate?date=2013-07-01');
         const data = await res.json();
         console.log(data);
-    } catch (err) {
-        console.log('Error', err);
+    } catch (e) {
+        console.log('Error', e);
     }
-
 }
