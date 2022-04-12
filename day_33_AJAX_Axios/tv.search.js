@@ -1,19 +1,24 @@
+
+// Select Form Element
 const form = document.querySelector('#searchForm');
-form.addEventListener('submit', async function (e) {
-    e.preventDefault(); //Prevents the default behaviour of an element, in this case, the redirection of a form
+
+//Add Event listener & API request
+form.addEventListener('click', async (e) => {
+    e.preventDefault();
     const searchTerm = form.elements.query.value;
-    const config = { params: { q: searchTerm } }
-    const res = await axios.get(`https://api.tvmaze.com/search/shows?q=`, config);
+    const paramAPI = { params: { q: searchTerm } };
+    const res = await axios.get(`https://api.tvmaze.com/search/shows?q=`, paramAPI)
     addImg(res.data);
-    forms.elements.query.value = '';
+    form.elements.query.value = '';
 })
 
+//Function to append image to the body o fhe page
 const addImg = (shows) => {
     for (let result of shows) {
         if (result.show.image) {
             const img = document.createElement('img');
             img.src = result.show.image.medium;
-            document.body.append(img)
+            document.body.append(img);
         }
     }
 }
