@@ -1,0 +1,14 @@
+// cd / > to access the root folder
+// cd ~ - to access the home directory 
+// Remember the difference between absolute and relative path
+// Relative path cd Movies (Only if you're inside the home directory)
+// Absolute path cd /Users/hesse/Movies
+// You can make diretories using the relative or aboslute path
+// How to access the manual pages inside the termonal > man + command > man ls
+// ls -la > diaplay list of hidden files and long detail information
+// touch > utility sets the modification and access times of files.  If any file does not exist, it is created with default permissions. 
+// If you use touch with an already created file, it 'touches' it and changes its access time.
+// rm - you can use this command to remove multuple files at the same time.
+// rmdir - only works in empty folders.
+// rm -rf - r(stands for recursive > it's going to delete the files evene in nested folders) f(stands for force)  With this -rf flag you're able to delete dirs that have content inside of them.
+// 
