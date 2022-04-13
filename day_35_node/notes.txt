@@ -1,0 +1,23 @@
+//Node is Javascript that runs outside of the browser, so you not longer have access to the DOM.
+// Node is a Javascript runtime > An implementation of Javascript that runs outside of the browser
+// Node > use the same Javascript syntax to write code that runs on the server side
+// Node > you don't have to learn another separate language to run server side code
+
+//What do people build with Node?
+// Web servers 
+// Command line tools
+// Native apps > VSCode is a Node app
+// Video games
+// Drone Software
+// NASA uses node to keep astronauts safe during space walks
+// Node has a REPL(read, evaluate, print, loop) - interactive computer programming enviromment 
+// browser console is also a REPL
+//Usuallly you use a REPL to debud or play around with some new features.
+// Node is a Javascript runtime > If you access its REPL, you can type Javascript code just like if you were in your browser's console
+
+
+//Node > type node to enter the REPL, and then .help > to access a man page with some commands and explantions
+// Node > althrough it doesn't come with the DOM cappabilities, it has its own methods 
+// The window object found in a browser is present but with a different name > it's called global
+// You have console.log but it's different from that of the browser
+// 
