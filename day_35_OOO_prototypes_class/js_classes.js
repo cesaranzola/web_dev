@@ -187,3 +187,39 @@ const rot = new Color(255, 67, 89, 'red');
 const orange = new Color(220, 126, 32, 'carrot');
 
 
+
+//================Subclassing================
+// Inheritance by sharing classes functionality
+
+
+class Pet {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    eat() {
+        return `${this.name} is eating...`
+    }
+}
+
+// extends keyword + the name of the class you want to extend from 
+// this allows the Cat class to inherent the functionality from the Pet class
+class Cat extends Pet {
+    constructor(name, age, livesLeft = 9) {
+        super(name, age);
+        this.livesLeft = livesLeft;
+    }
+    meow() {
+        return 'Meowww'
+    }
+}
+
+//When you invoke the class and pass in a method, first checks if it can find the method inside the class, it isn't possible goes down the prototype chain and looks in the extended class
+class Dog extends Pet {
+    bark() {
+        return 'Wooof'
+    }
+}
+
+const monty = new Cat('Monty', 12);
+const meinHund = new Dog('Führer', 4);
