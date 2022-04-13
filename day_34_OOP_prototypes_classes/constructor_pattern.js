@@ -117,3 +117,45 @@ const farbeZwei = new Color(234, 50, 54);
 farbeEins.hex === farbeZwei.hex // > true - because they're referencing the same prototype object
 
 
+
+
+
+
+
+
+
+//Second Iteration
+
+
+//Constructor Function - Creates an object prototype
+//It's a convenction to name the constructor functions with a start caputal letter
+function Convert(r, g, b) {
+    this.r = r;
+    this.g = g;
+    this.b = b;
+}
+
+//Adds a new method to the Convert object prototype
+Convert.prototype.rgb = function () {
+    //Destructuring assignment - unpacks arrays, properties from objects, into distinct variables
+    const { r, g, b } = this;
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+Convert.prototype.hex = function () {
+    const { r, g, b } = this;
+    return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+
+Convert.prototype.rgba = function (a = 1.0) {
+    const { r, g, b } = this;
+    return `rgb(${r}, ${g}, ${b}, ${a})`;
+}
+
+const lieblingsFarbe = new Convert(234, 34, 5);
+const lieblingsFarbeZwei = new Convert(156, 134, 245);
+const lieblingsFarbeDrei = new Convert(216, 134, 245);
+
+console.log(lieblingsFarbe.rgb());
+console.log(lieblingsFarbeZwei.hex());
+console.log(lieblingsFarbeDrei.rgba());
