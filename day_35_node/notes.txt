@@ -20,4 +20,11 @@
 // Node > althrough it doesn't come with the DOM cappabilities, it has its own methods 
 // The window object found in a browser is present but with a different name > it's called global
 // You have console.log but it's different from that of the browser
+// You can access a node.js script by typing its relative or absolute path, just like you can with any type of file
+
+
+//Bear in mind that Node is a beast on itself, you can take a 40-hour tutorial that it's just about Node. And then another 40-hour for a tutorial on how to use node to build x.
+// node -v > to check which version of node you have
+// You can have different node versions, according to the project you're working on.
+// You can use nvm - node version manager 
 // 
