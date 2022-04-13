@@ -64,13 +64,56 @@
 // 3. Binds the newly created object instance as the this context (i.e. all references to this in the constructor function now refer to the object created in the first step).
 // 4. Returns this if the function doesn't return an object.
 
+// function Color(r, g, b) {
+//     this.r = r;
+//     this.g = g;
+//     this.b = b;
+//     //This will define the rgb property still in each copy of each object.
+//     this.rgb = function () {
+//         const { r, g, b } = this;
+//         return `rgb(${r}, ${g}, ${b})`
+//     }
+// }
+// new Color(255, 40, 100);
+
+// //How to add a new method using the new keyword, the constructor function, to the actual built-in prototype
+
+//Constructor Function - A function that creates objects - Capital letter to indicate it's a constructor function
+//Constructor Function creates a prototype object
 function Color(r, g, b) {
     this.r = r;
     this.g = g;
     this.b = b;
-    console.log(this);
+}
+new Color(255, 40, 100);
+
+
+//You don't want to use arrow functions while defining new prototypes methods, because they behave diffently and can cause you problems
+//Use traditional standard function expressions
+//Adds a new method to the constructor function prototype object
+Color.prototype.rgb = function () {
+    const { r, g, b } = this;
+    return `rgb(${r}, ${g}, ${b})`
+};
+
+//Adds a new method to the constructor function prototype object
+Color.prototype.hex = function () {
+    const { r, g, b } = this;
+    return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+};
+
+//Adds a new method to the constructor function prototype object
+//Default parameter of the Alpha channel set equal to 1
+Color.prototype.rgba = function (a = 1.0) {
+    const { r, g, b } = this;
+    return `rgb(${r}, ${g}, ${b}, ${a})`;
 }
 
-//How to add a new method using the new keyword, the constructor function, to the actual built-in prototype
 
-new Color(255, 40, 100);
+//Adds a new method to the constructor function prototype object
+//This is way more efficent than the factory approach explained before
+const farbeEins = new Color(234, 50, 54);
+const farbeZwei = new Color(234, 50, 54);
+farbeEins.hex === farbeZwei.hex // > true - because they're referencing the same prototype object
+
+
