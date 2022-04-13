@@ -206,6 +206,7 @@ class Pet {
 // this allows the Cat class to inherent the functionality from the Pet class
 class Cat extends Pet {
     constructor(name, age, livesLeft = 9) {
+        //Super is a reference to the superclass
         super(name, age);
         this.livesLeft = livesLeft;
     }
@@ -223,3 +224,31 @@ class Dog extends Pet {
 
 const monty = new Cat('Monty', 12);
 const meinHund = new Dog('Führer', 4);
+
+
+
+//extends class and super keyword secodn example
+
+class German {
+    constructor(article, noun) {
+        this.article = article;
+        this.noun = noun;
+    }
+    capitalize() {
+        let { article, noun } = this;
+        return `${article.toUpperCase()}, ${noun.toUpperCase()}`;
+    }
+}
+
+class Plural extends German {
+    constructor(article, noun, plur) {
+        super(article, noun)
+        this.plur = plur;
+    }
+    articleCapital() {
+        let { article, noun, plur } = this;
+        return `${article[0].toUpperCase()}${article.substring(1)} ${noun[0].toUpperCase()}${noun.substring(1)}${plur}`; // This code smells
+    }
+}
+
+const neuWort = new Plural('die', 'hund', 'e');
