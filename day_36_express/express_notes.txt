@@ -1,0 +1,27 @@
+Node express
+It's a framework
+It's a fast, unopinionated, minimalist web framework for Node.js. It help us build web apps.
+
+It's a Npm package which comes with a bunch of methods and optional plugins that we can use to build web applications and API's
+
+Express help us to:
+1. Start up a server to listen for requests
+2. Parse incoming request
+3. Match those requests to particular routes 
+4. Craft out http response and associated content
+
+
+Libraries vs Frameworks
+Libraries - When you use a library, you are in charge!
+You control the flow of the application code
+You decide when to include the library
+Libraries often make small actions for us or gives single purpose capabilities like Axios(making http request)
+
+Frameworks - the control is inverted
+The Framework is in charge, and you are merely a participant
+The Framework tells you where to plug in the code
+Frameworks are geared toward building full applications
+
+
+Express is a lightweight framework 
+
