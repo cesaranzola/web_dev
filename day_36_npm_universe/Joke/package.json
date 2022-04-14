@@ -1,0 +1,14 @@
+{
+  "name": "joke",
+  "version": "1.0.0",
+  "description": "Tells jokes",
+  "main": "index.js",
+  "scripts": {
+    "test": "joke"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
