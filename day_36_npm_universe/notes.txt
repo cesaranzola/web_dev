@@ -1,0 +1,9 @@
+Packages > libraries other people have written
+Referencing entire directories is very crucial if you want to handle your own or other people Packages.
+
+Npm - Node package manager
+1. A library of thousand of packages published by other developers that we can use for free
+2. A command line tool to easily install and manage those packages in our Node projects
+
+Everytime you install a package, a folder name node_modules is going to be created, it contains all the files to run the package.
+Package Locked JSON - It's a record of the contents of node_modules directory.

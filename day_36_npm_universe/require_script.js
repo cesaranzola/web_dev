@@ -7,5 +7,10 @@
 //You can destructure the object to define which properties do you want access to
 // The add property currently present in the math object is being ignored in the destructuring process.
 const { PI, square } = require('./math'); // If you dereference the object, you can ommit the name of the object when calling its methods.
-console.log(PI);
-console.log(square(4));
+// console.log(PI);
+// console.log(square(4));
+
+
+//How to require an entire directory
+const cats = require('./shelter');
+console.log(`Require an entire directory:`, cats);
