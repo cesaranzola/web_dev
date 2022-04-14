@@ -7,3 +7,12 @@ Npm - Node package manager
 
 Everytime you install a package, a folder name node_modules is going to be created, it contains all the files to run the package.
 Package Locked JSON - It's a record of the contents of node_modules directory.
+
+In every single module you installed, contains a JSON file
+JSON file inside every node_modules includes metadata 
+You want to pay special attention to the dependencies information > 
+The dependencies installed in node_modules are added automatically to JSON file you create by running npm init 
+
+
+//How to succesfully install depencies by using a JSON file 
+If you run npm install inside a folder with a JSON file, it's going to install all the dependencies included in the JSON file.
