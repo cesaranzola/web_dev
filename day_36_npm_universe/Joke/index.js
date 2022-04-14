@@ -1,2 +1,6 @@
 const giveMeAJoke = require('give-me-a-joke');
-console.dir(giveMeAJoke);
+const colors = require('colors');
+
+giveMeAJoke.getRandomCNJoke(function (joke) {
+    console.log(joke.rainbow);
+});
