@@ -118,11 +118,16 @@ app.get('/r/:subreddit/:top/:postId', (req, res) => {
     res.send(`<h1 style="color:red"> You're browsing the top ${top} post ID: ${postId} on the ${subreddit} subreddit</h1>`);
 })
 
-//Default response when requested website isn't present - this always must go at the of the file, otherwise any route will be valid upon request
-app.get('*', (req, res) => {
-    res.send(`We don't know the path you searching...`);
+app.get('/rollingstone/:articles/:guitarrists/:top100', (req, res) => {
+    const { articles, guitarrists, top100 } = req.params;
+    res.send(`<h1 style="color:blue"> This is the ${articles}, we the top ${top100} ${guitarrists} in the world</h1>`);
 })
 
+
+//Default response when requested website isn't present - this always must go at the of the file, otherwise any route will be valid upon request
+app.get('*', (req, res) => {
+    res.send(`We don't know the path you searching for...`);
+})
 
 
 
