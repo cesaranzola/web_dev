@@ -60,39 +60,73 @@
 
 
 //====================Day two==================
+
+//PATH PARAMETERS
+
 //Imports Express framework 
 const express = require('express');
 //Creates a constant with Express execution declaration, so you can apply methods to it
 const app = express();
 
 //Prints a mesage to your terminal indicating a new request
-app.use((req, res) => {
-    res.send(`We've got your request`);
-})
+//This has to be commented out otherwise, it will be the anwser to any incoming request
+// app.use((req, res) => {
+//     res.send(`We've got your request`);
+// })
 
 //Creates a port to listen to request on your local server
 app.listen(3000, () => {
-    console.log(`We've got a new request`);
+    console.log(`Listening to port: 3000`);
 })
 
-//Define a route called movies
-app.get('/movies', () => {
+//Define a route called movies - declaring routes manually is only for educational purposes, most of the time you want the routes to be generate automatically
+app.get('/movies', (req, res) => {
     res.send(`Sie sind erlaubt zum Filme sehen.`);
 })
 
-//Define a route called musik
-app.post('/musik', () => {
+//Define a route called musik - declaring routes manually is only for educational purposes, most of the time you want the routes to be generate automatically
+app.post('/musik', (req, res) => {
     res.send('Sie dürfen zwei Leider anhören.');
 })
 
 //Root route 
-app.get('/', () => {
+app.get('/', (req, res) => {
     res.send(`This is the homepage of the website.`);
 })
 
-//Default response when requested website isn't present
-app.get('*', () => {
+//=================PATH PARAMETERS====================
+
+//How to declare routes automatically
+//Anything matching the path /r/somePath will be considered a valid route (subreddit is just a placeholder)
+//If a user requets something like  localhost:3000/r/somePath/addtionalPath > it won't work, because you didn't define an addtional path to it
+app.get('/r/:subreddit', (req, res) => {
+    //Grabs user request and adds it to the parameters of the req object that Express previously created for us.
+    const { subreddit } = req.params;
+    res.send(`<h1>You're currently browsing the ${subreddit} subreddit</h1>`);
+})
+
+// The colons in '/r/:subreddit/:postId' indicates variables, they are placeholders. We're not exactly matching those names in our requests.
+app.get('/r/:subreddit/:postId', (req, res) => {
+    //Grabs user request and adds it to the parameters of the req object that Express previously created for us.
+    const { subreddit, postId } = req.params;
+    res.send(`<h1>You're currently viewing Post ID: ${postId} on the ${subreddit} subreddit</h1>`);
+})
+
+app.get('/r/:subreddit/:top/:postId', (req, res) => {
+    //Destructure the req object that Express created for us
+    const { subreddit, top, postId } = req.params;
+    res.send(`<h1 style="color:red"> You're browsing the top ${top} post ID: ${postId} on the ${subreddit} subreddit</h1>`);
+})
+
+//Default response when requested website isn't present - this always must go at the of the file, otherwise any route will be valid upon request
+app.get('*', (req, res) => {
     res.send(`We don't know the path you searching...`);
 })
+
+
+
+
+
+
 
 
