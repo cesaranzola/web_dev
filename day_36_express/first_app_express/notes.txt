@@ -1,1 +1,3 @@
 Local host - it's a reference to your local machine
+Routing - Refers to taking incoming request and a path that is requested
+and matching to some code and some response.
