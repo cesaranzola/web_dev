@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 
 app.get('/rand', (req, res) => {
     const num = Math.floor(Math.random() * 10) + 1;
-    res.render('random', { num: num }); //Creates an object and assigns the num value, you can then access rand in the EJS files of your app.
+    res.render('random', { num: num });
 })
 
 app.get('/r/:subreddit', (req, res) => {
@@ -47,6 +47,12 @@ app.get('/r/:subreddit', (req, res) => {
     res.render('subreddit', { subreddit })
 })
 
+app.get('/movies', (req, res) => {
+    const movies = [
+        'The Godfather', 'Crossroads', 'The Doors', 'Monty Python'
+    ]
+    res.render('movies', { movies });
+})
 
 app.listen(3000, () => {
     console.log('Listening to the port: 3000..');

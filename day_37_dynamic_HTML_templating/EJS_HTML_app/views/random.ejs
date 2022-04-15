@@ -2,20 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random</title>
 </head>
 
 <body>
-    <!-- You're using the object rand, and passing it into the EJS snippet -->
-    <!-- EJS > embedded Javascript templating -->
-    <h1>Your random number is: <%= num %>
-    </h1>
-    <% if(num % 2===0) { %>
-        <h2>This is an even number!</h2>
-        <% } %>
+  <!-- You're using the object rand, and passing it into the EJS snippet -->
+  <!-- EJS > embedded and render the value -->
+  <h1>Your random number is: <%= num %>
+  </h1>
+  <!-- EJS syntax to run conditionals and only display what is inside the if and else blocks, not the code -->
+
+  <% if(num % 2===0) { %>
+  <h2>This is an even number</h2>
+  <% } else { %>
+  <h2>That's an odd number</h2>
+  <% } %>
+
+
+  <!-- Terniary operation -->
+  <h3> <%= num % 2 === 0 ? 'Even' : 'Odd' %> </h3>
 </body>
 
 </html>
