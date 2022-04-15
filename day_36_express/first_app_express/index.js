@@ -30,8 +30,30 @@ app.listen(8080, () =>{
 
 //Remember that req is an object created by Express based upon the incoming HTTP request
 //res - It's also a object created by Express, and res has a bunch of methods you can use. such as res.send > to send back some information to request
+
+//Routing some incoming request > to some outgoing response
 app.get('/movies', (req, res) => {
-    console.log('Movies request')
+    res.send('Ich möchte James Bond Filme auf jeden Fall sehen!')
+})
+
+app.get('/Musik', (req, res) =>{
+    res.send(`Was ist deine Lieblingsband?`)
+})
+
+//Root route
+app.get('/', (req, res) => {
+    res.send('This is the home page!');
+})
+
+//How to send back to a post request
+app.post('/movies', (req, res) =>{
+    res.send('Keine Filme drinnen Ihre Konto')
+})
+
+//Put at the end of the file a default response for non recognizible route paths
+//Routes are match in order, that's why you want to include you're default at the end of the file
+app.get('*', (req, res) =>{
+    res.send(`I don't know that path!`);
 })
 
 
