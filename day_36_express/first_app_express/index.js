@@ -64,74 +64,109 @@
 //PATH PARAMETERS
 
 //Imports Express framework 
-const express = require('express');
-//Creates a constant with Express execution declaration, so you can apply methods to it
-const app = express();
+// const express = require('express');
+// //Creates a constant with Express execution declaration, so you can apply methods to it
+// const app = express();
 
-//Prints a mesage to your terminal indicating a new request
-//This has to be commented out otherwise, it will be the anwser to any incoming request
-// app.use((req, res) => {
-//     res.send(`We've got your request`);
+// //Prints a mesage to your terminal indicating a new request
+// //This has to be commented out otherwise, it will be the anwser to any incoming request
+// // app.use((req, res) => {
+// //     res.send(`We've got your request`);
+// // })
+
+// //Creates a port to listen to request on your local server
+// app.listen(3000, () => {
+//     console.log(`Listening to port: 3000`);
 // })
 
-//Creates a port to listen to request on your local server
-app.listen(3000, () => {
-    console.log(`Listening to port: 3000`);
-})
+// //Define a route called movies - declaring routes manually is only for educational purposes, most of the time you want the routes to be generate automatically
+// app.get('/movies', (req, res) => {
+//     res.send(`Sie sind erlaubt zum Filme sehen.`);
+// })
 
-//Define a route called movies - declaring routes manually is only for educational purposes, most of the time you want the routes to be generate automatically
-app.get('/movies', (req, res) => {
-    res.send(`Sie sind erlaubt zum Filme sehen.`);
-})
+// //Define a route called musik - declaring routes manually is only for educational purposes, most of the time you want the routes to be generate automatically
+// app.post('/musik', (req, res) => {
+//     res.send('Sie dürfen zwei Leider anhören.');
+// })
 
-//Define a route called musik - declaring routes manually is only for educational purposes, most of the time you want the routes to be generate automatically
-app.post('/musik', (req, res) => {
-    res.send('Sie dürfen zwei Leider anhören.');
-})
-
-//Root route 
-app.get('/', (req, res) => {
-    res.send(`This is the homepage of the website.`);
-})
+// //Root route 
+// app.get('/', (req, res) => {
+//     res.send(`This is the homepage of the website.`);
+// })
 
 //=================PATH PARAMETERS====================
 
 //How to declare routes automatically
 //Anything matching the path /r/somePath will be considered a valid route (subreddit is just a placeholder)
 //If a user requets something like  localhost:3000/r/somePath/addtionalPath > it won't work, because you didn't define an addtional path to it
-app.get('/r/:subreddit', (req, res) => {
-    //Grabs user request and adds it to the parameters of the req object that Express previously created for us.
-    const { subreddit } = req.params;
-    res.send(`<h1>You're currently browsing the ${subreddit} subreddit</h1>`);
+// app.get('/r/:subreddit', (req, res) => {
+//     //Grabs user request and adds it to the parameters of the req object that Express previously created for us.
+//     const { subreddit } = req.params;
+//     res.send(`<h1>You're currently browsing the ${subreddit} subreddit</h1>`);
+// })
+
+// // The colons in '/r/:subreddit/:postId' indicates variables, they are placeholders. We're not exactly matching those names in our requests.
+// app.get('/r/:subreddit/:postId', (req, res) => {
+//     //Grabs user request and adds it to the parameters of the req object that Express previously created for us.
+//     const { subreddit, postId } = req.params;
+//     res.send(`<h1>You're currently viewing Post ID: ${postId} on the ${subreddit} subreddit</h1>`);
+// })
+
+// app.get('/r/:subreddit/:top/:postId', (req, res) => {
+//     //Destructure the req object that Express created for us
+//     const { subreddit, top, postId } = req.params;
+//     res.send(`<h1 style="color:red"> You're browsing the top ${top} post ID: ${postId} on the ${subreddit} subreddit</h1>`);
+// })
+
+// app.get('/rollingstone/:articles/:guitarrists/:top100', (req, res) => {
+//     const { articles, guitarrists, top100 } = req.params;
+//     res.send(`<h1 style="color:blue"> This is the ${articles}, we the top ${top100} ${guitarrists} in the world</h1>`);
+// })
+
+
+// //Default response when requested website isn't present - this always must go at the of the file, otherwise any route will be valid upon request
+// app.get('*', (req, res) => {
+//     res.send(`We don't know the path you searching for...`);
+// })
+
+
+
+//===============Query Strings==================
+const { reset } = require('colors');
+const express = require('express');
+
+const app = express();
+
+app.listen(3000, () => {
+    console.log(`Listening to port: 3000`);
 })
 
-// The colons in '/r/:subreddit/:postId' indicates variables, they are placeholders. We're not exactly matching those names in our requests.
-app.get('/r/:subreddit/:postId', (req, res) => {
-    //Grabs user request and adds it to the parameters of the req object that Express previously created for us.
-    const { subreddit, postId } = req.params;
-    res.send(`<h1>You're currently viewing Post ID: ${postId} on the ${subreddit} subreddit</h1>`);
+app.get('/movies', (req, res) => {
+    res.send(`Sie sind erlaubt zum Filme sehen.`);
 })
 
-app.get('/r/:subreddit/:top/:postId', (req, res) => {
-    //Destructure the req object that Express created for us
-    const { subreddit, top, postId } = req.params;
-    res.send(`<h1 style="color:red"> You're browsing the top ${top} post ID: ${postId} on the ${subreddit} subreddit</h1>`);
+app.post('/musik', (req, res) => {
+    res.send('Sie dürfen zwei Leider anhören.');
 })
 
-app.get('/rollingstone/:articles/:guitarrists/:top100', (req, res) => {
-    const { articles, guitarrists, top100 } = req.params;
-    res.send(`<h1 style="color:blue"> This is the ${articles}, we the top ${top100} ${guitarrists} in the world</h1>`);
+//Root route 
+app.get('/', (req, res) => {
+    res.send(`Welcome! This is the homepage of the website. `);
 })
 
 
-//Default response when requested website isn't present - this always must go at the of the file, otherwise any route will be valid upon request
+//If you have multiple query values, you have to type in your search bar like this 
+// localhost:3000/pathName?q=someQuery&name=value
+app.get('/search', (req, res) => {
+    const { q } = req.query;
+    if (!q) {
+        res.send('Nothing found, If nothing search.');
+    }
+    res.send(`<h1> Search results for: ${q} </h1>`);
+})
+
 app.get('*', (req, res) => {
     res.send(`We don't know the path you searching for...`);
 })
-
-
-
-
-
 
 

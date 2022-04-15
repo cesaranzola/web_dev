@@ -1,0 +1,5 @@
+Templating 
+Allow us to define a preset "pattern" for a webpage, that we can dynamically modidy
+For example, we could define a single 'Search' template that displays all the results for a given search term
+We don't know what the term is or how many results are ahead of time. The webpage is created on the fly.
+ 
