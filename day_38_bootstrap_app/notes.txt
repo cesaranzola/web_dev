@@ -1,0 +1,2 @@
+Partials - (Ejs calls them includes)
+It's a way of including templates inside another templates. 
