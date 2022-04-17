@@ -7,9 +7,6 @@ const path = require("path");
 //====App
 const app = express();
 
-//===Data
-const redditData = require("./MightyHarvest-hot-100-results.json");
-
 //===Body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -24,20 +21,23 @@ app.set("views", path.join(__dirname, "/views"));
 // });
 
 app.get("/", (req, res) => {
-  fs.readFile(
-    "./json/MightyHarvest-hot-100-results.json",
-    "utf-8",
-    (err, data) => {
-      if (err) throw err;
-      if (data) {
-        console.log(data);
-      }
+  fs.readFile("./json/mighty.json", "utf-8", (err, data) => {
+    if (err) throw err;
+    if (data) {
+      // console.log(data);
+      //Create json array object
+      let json = { data: [] };
+      JSON.parse(data).data.map((v) => json.data.push(v));
+      json.data.sort((a, b) => b.value - a.value);
+      //Render ejs and pass data
+      res.render("subreddit", {
+        data: json,
+      });
     }
-  );
-  res.render("subreddit");
+  });
 });
 
 //Server listen
 app.listen(8080, () => {
-  console.log("Listening to the port: 3000...");
+  console.log("Listening to the port: 8080...");
 });
