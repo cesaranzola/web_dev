@@ -60,8 +60,12 @@ app.post("/comments", (req, res) => {
   res.redirect("/comments");
 });
 
-//
-app.get("/comments/:id", (req, res) => {});
+//Route to get by id
+app.get("/comments/:id", (req, res) => {
+  const { id } = req.params;
+  const comment = comments.find((c) => c.id === parseInt(id));
+  res.render("comments/show", { comment });
+});
 
 //Route
 //Remember that you can access the requested data, req is an object that Express creates for us
