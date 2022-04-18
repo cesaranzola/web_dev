@@ -45,8 +45,16 @@ app.get('comments/index', (req, res) => {
 });
 
 //====Route for creating a new comment=====
+// Part I - get request
 app.get('comments/new', (req, res) => {
   res.render('comments/new');
+});
+
+// Part II - post request
+app.post('/comments', (req, res) => {
+  const { username, comment } = req.body;
+  comments.push({ username, comment, id: uuidv4() });
+  res.redirect('/comments');
 });
 
 //=================Port Listener================
