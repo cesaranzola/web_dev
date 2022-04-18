@@ -16,7 +16,24 @@ app.set('views', path.join(_dirname, '/views'));
 
 //===================Data========================
 const comments = [
-    {
-        id: uuidv4();
-    }
-]
+  {
+    id: uuidv4(),
+    username: Pablo,
+    comment: 'Working the graveyard shift',
+  },
+  {
+    id: uuidv4(),
+    username: Joe,
+    comment: 'Working the graveyard shift',
+  },
+  {
+    id: uuidv4(),
+    username: Loretta,
+    comment: 'Working the graveyard shift',
+  },
+  {
+    id: uuidv4(),
+    username: Fanny_pack,
+    comment: 'Working the graveyard shift',
+  },
+];
