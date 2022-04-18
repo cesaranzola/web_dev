@@ -80,10 +80,11 @@ app.get('/comments/:id/edit', (req, res) => {
   res.render('comments/edit', { comment });
 });
 
-app.get('/comments/:id/edit', (req, res) => {
+//===============Deleting a comment=============
+app.delete('/comments/:id', (req, res) => {
   const { id } = req.params;
-  const comment = comments.find((c) => id === id);
-  res.render('comments/edit', { comment });
+  comments = comments.filter((c) => c.id !== id);
+  res.redirect('/comments');
 });
 
 //=================Port Listener================
