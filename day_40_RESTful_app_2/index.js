@@ -57,6 +57,18 @@ app.post('/comments', (req, res) => {
   res.redirect('/comments');
 });
 
+//=========Route to get by ID========
+app.get('/comments/:id', (req, res) => {
+  const { id } = req.params;
+  const comment = comments.find((c) => c.id === id);
+  res.render('comments/show', { comment });
+});
+
+app.get('/comments/:id', (req, res) => {
+  const { id } = req.params;
+  const comment = comments.find((c) => c.id === id);
+  res.render('comments/show', { comment });
+});
 //=================Port Listener================
 app.listen(3000, () => {
   console.log('Listening on port: 3000...');
