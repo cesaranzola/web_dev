@@ -11,6 +11,58 @@ app.use(express.json());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
+const comments = [
+  {
+    id: 1,
+    username: "Todd",
+    comment: "If you fuck with the bull, you get the horn!",
+  },
+  {
+    id: 2,
+    username: "Peppo",
+    comment: "If you fuck with the bull, you get the horn!",
+  },
+  {
+    id: 3,
+    username: "Claire",
+    comment: "If you fuck with the bull, you get the horn!",
+  },
+  {
+    id: 4,
+    username: "Natalie",
+    comment: "If you fuck with the bull, you get the horn!",
+  },
+  {
+    id: 5,
+    username: "Brett",
+    comment: "If you fuck with the bull, you get the horn!",
+  },
+  {
+    id: 6,
+    username: "Daniel",
+    comment: "If you fuck with the bull, you get the horn!",
+  },
+];
+
+app.get("/comments", (req, res) => {
+  res.render("comments/index", { comments });
+});
+
+// Route for creating a new comment - get comment
+app.get("/comments/new", (req, res) => {
+  res.render("comments/new");
+});
+
+//Route for creating a new comment - post comment
+app.post("/comments", (req, res) => {
+  const { username, comment } = req.body;
+  comments.push({ username, comment });
+  res.redirect("/comments");
+});
+
+//
+app.get("/comments/:id", (req, res) => {});
+
 //Route
 //Remember that you can access the requested data, req is an object that Express creates for us
 //You can access the query of that data through req.query
