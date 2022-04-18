@@ -1,0 +1,28 @@
+Mongo 
+- It's a document database, which we can use to store and retrieve complex data from
+
+- Why use a database? 
+- Databases can handle large amounts of data efficiently and store it compactly
+- They provide tools for easy insertion, querying, and updating data
+- They general offer security features and control over data 
+- They (generally) scale well
+
+
+SQL VS NO-SQL Databases
+
+SQL
+- Structured querying language are relational databases ! > 
+- We predefine a schema of tables before we insert anything
+- Some > MySQL, Postgres, SQlite, Oracle
+
+NO-SQL
+- They don't use SQL
+- NO-SQL databases include: document, key-value and graph stores
+- Some > MongoDB, CouchDB, Neo4j, Cassandra, Redis
+
+
+Why MongoDB?
+- Commonly used with Node & Express (MEAN, MERN, MEN STACK)
+- Easy to get started
+- It plays well with Javascript
+- Strong support community
