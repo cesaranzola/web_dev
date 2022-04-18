@@ -73,6 +73,19 @@ app.patch('/comments/:id', (req, res) => {
   res.redirect('/comments');
 });
 
+//=================Route for edit comment=======
+app.get('/comments/:id/edit', (req, res) => {
+  const { id } = req.params;
+  const comment = comments.find((c) => c.id === id);
+  res.render('comments/edit', { comment });
+});
+
+app.get('/comments/:id/edit', (req, res) => {
+  const { id } = req.params;
+  const comment = comments.find((c) => id === id);
+  res.render('comments/edit', { comment });
+});
+
 //=================Port Listener================
 app.listen(3000, () => {
   console.log('Listening on port: 3000...');
