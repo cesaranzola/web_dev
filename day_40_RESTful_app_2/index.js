@@ -38,6 +38,17 @@ const comments = [
   },
 ];
 
+//===================Views======================
+//========RootRoute========
+app.get('comments/index', (req, res) => {
+  res.render('comments/index', { comments });
+});
+
+//====Route for creating a new comment=====
+app.get('comments/new', (req, res) => {
+  res.render('comments/new');
+});
+
 //=================Port Listener================
 app.listen(3000, () => {
   console.log('Listening on port: 3000...');
