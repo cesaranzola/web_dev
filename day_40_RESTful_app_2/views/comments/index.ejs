@@ -7,12 +7,14 @@
     <title>Comments Index</title>
   </head>
   <body>
-    <h1>Welcome to the Comment Section</h1>
+    <h1>Welcome to the comments section</h1>
     <ul>
-      <% for(let c of comments) {%>
+      <% for(let c of comments) { %>
       <li>
-        <%= c.comment %> - <b> <%= c.username %> </b>
-        <a href="/comments/<%= c.id %> ">Details</a>
+        <p>
+          <%= c.comment %> - <b> <%= c.username %> </b>
+          <a href="/comments/<%= c.id %>">Details</a>
+        </p>
       </li>
       <% } %>
     </ul>

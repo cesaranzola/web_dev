@@ -18,26 +18,25 @@ app.set('views', path.join(__dirname, '/views'));
 let comments = [
   {
     id: uuidv4(),
-    username: 'Pablo',
-    comment: 'Working the graveyard shift',
+    username: 'John',
+    comment: `That going you like, it's going to be back in style`,
   },
   {
     id: uuidv4(),
-    username: 'Joe',
-    comment: 'Working the graveyard shift',
+    username: 'David',
+    comment: `That going you like, it's going to be back in style`,
   },
   {
     id: uuidv4(),
-    username: 'Loretta',
-    comment: 'Working the graveyard shift',
+    username: 'Laura',
+    comment: `That going you like, it's going to be back in style`,
   },
   {
     id: uuidv4(),
-    username: 'Fanny',
-    comment: 'Working the graveyard shift',
+    username: 'Donna',
+    comment: `That going you like, it's going to be back in style`,
   },
 ];
-
 //===================Views======================
 //========RootRoute========
 app.get('/comments', (req, res) => {
@@ -88,11 +87,6 @@ app.delete('/comments/:id', (req, res) => {
   res.redirect('/comments');
 });
 
-app.delete('/comments/:id', (req, res) => {
-  const { id } = req.params;
-  comments = comments.filter((c) => c.id !== id);
-  res.render('/comments');
-});
 //=================Port Listener================
 app.listen(3000, () => {
   console.log('Listening on port: 3000...');

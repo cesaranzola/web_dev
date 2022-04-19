@@ -4,17 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit a comment</title>
+    <title>Edit</title>
   </head>
   <body>
-    <h1>Edit</h1>
-    <form method="post" action="/comments/<%= comment.id %>/?_method=PATCH">
-      <textarea name="comment" id="" cols="30" rows="5">
-      <%= comment.comment %> 
-    </textarea
-      >
+    <h1>Edit Comment</h1>
+    <form action="/comments/<%= comment.id %>/?_method=PATCH" method="post">
+      <textarea name="comment" id="comment" cols="30" rows="6">
+        <%= comment.comment %> 
+      </textarea>
       <br />
       <button>Save</button>
     </form>
+    <br />
+    <a href="/comments">Back Home</a>
   </body>
 </html>
