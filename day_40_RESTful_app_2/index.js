@@ -8,45 +8,45 @@ const { v4: uuidv4 } = require('uuid');
 //==================Use==========================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(methodOverRide(require('_method')));
+app.use(methodOverRide('_method'));
 
 //================View Engine====================
 app.set('view engine', 'ejs');
-app.set('views', path.join(_dirname, '/views'));
+app.set('views', path.join(__dirname, '/views'));
 
 //===================Data========================
-const comments = [
+let comments = [
   {
     id: uuidv4(),
-    username: Pablo,
+    username: 'Pablo',
     comment: 'Working the graveyard shift',
   },
   {
     id: uuidv4(),
-    username: Joe,
+    username: 'Joe',
     comment: 'Working the graveyard shift',
   },
   {
     id: uuidv4(),
-    username: Loretta,
+    username: 'Loretta',
     comment: 'Working the graveyard shift',
   },
   {
     id: uuidv4(),
-    username: Fanny_pack,
+    username: 'Fanny',
     comment: 'Working the graveyard shift',
   },
 ];
 
 //===================Views======================
 //========RootRoute========
-app.get('comments/index', (req, res) => {
+app.get('/comments', (req, res) => {
   res.render('comments/index', { comments });
 });
 
 //====Route for creating a new comment=====
 // Part I - get request
-app.get('comments/new', (req, res) => {
+app.get('/comments/new', (req, res) => {
   res.render('comments/new');
 });
 
@@ -64,20 +64,21 @@ app.get('/comments/:id', (req, res) => {
   res.render('comments/show', { comment });
 });
 
-//=========Patch method - Edit Comment==========
+//================Edit Comment======================
+//========Route for edit comment=======
+app.get('/comments/:id/edit', (req, res) => {
+  const { id } = req.params;
+  const comment = comments.find((c) => c.id === id);
+  res.render('comments/edit', { comment });
+});
+
+//=======Patch method - Edit Comment=======
 app.patch('/comments/:id', (req, res) => {
   const { id } = req.params;
   const newCommentText = req.body.comment;
   const foundComment = comments.find((c) => c.id === id);
   foundComment.comment = newCommentText;
   res.redirect('/comments');
-});
-
-//=================Route for edit comment=======
-app.get('/comments/:id/edit', (req, res) => {
-  const { id } = req.params;
-  const comment = comments.find((c) => c.id === id);
-  res.render('comments/edit', { comment });
 });
 
 //===============Deleting a comment=============
@@ -87,6 +88,11 @@ app.delete('/comments/:id', (req, res) => {
   res.redirect('/comments');
 });
 
+app.delete('/comments/:id', (req, res) => {
+  const { id } = req.params;
+  comments = comments.filter((c) => c.id !== id);
+  res.render('/comments');
+});
 //=================Port Listener================
 app.listen(3000, () => {
   console.log('Listening on port: 3000...');

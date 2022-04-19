@@ -7,10 +7,10 @@
     <title>New Comment</title>
   </head>
   <body>
-    <h1>Make a new comment</h1>
+    <h1>New comment</h1>
     <form action="/comments" method="post">
       <section>
-        <label for="username">Enter username:</label>
+        <label for="username">Enter a username</label>
         <input
           type="text"
           name="username"
@@ -19,9 +19,14 @@
         />
       </section>
       <section>
-        <label for="comment">Comment Text</label>
-        <br />
-        <textarea name="comment" id="comment" cols="30" rows="5"></textarea>
+        <label for="comment">Enter a comment</label>
+        <textarea
+          name="comment"
+          id="comment"
+          cols="30"
+          rows="10"
+          placeholder="comment"
+        ></textarea>
       </section>
       <button>Submit</button>
     </form>
