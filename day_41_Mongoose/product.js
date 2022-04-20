@@ -29,7 +29,7 @@ const productSchema = new mongoose.Schema({
     //This isn't requiring, but you have to pass in a value that can be transform into an int > '59' > 59
     type: Number,
     required: true,
-    min: 0,
+    min: [0, 'Price value must be a positive integer. Y.D.A'],
   },
   onSale: {
     type: Boolean,
@@ -46,6 +46,10 @@ const productSchema = new mongoose.Schema({
       default: 0,
     },
   },
+  size: {
+    type: String,
+    enum: ['S', 'M', 'L'],
+  },
 });
 
 //==================Model > (collection)======================
@@ -53,10 +57,11 @@ const Product = mongoose.model('Product', productSchema);
 
 //===================New Instance===============
 const bike = new Product({
-  name: 'gloves H',
-  price: 23,
+  name: 'Cycling Jersey',
+  price: 35,
   onSale: true,
   categories: ['Cycling', 'Safety', 'Outdoors'],
+  size: 'XS',
 });
 bike
   .save()
@@ -68,3 +73,21 @@ bike
     console.log('Error!');
     console.log(err);
   });
+
+// Product.findOneAndUpdate(
+//   {
+//     name: 'Pistols',
+//   },
+//   {
+//     price: -19,
+//   },
+//   { returnNewDocument: true, runValidators: true } // This works the other ones, find in S didn't
+// )
+//   .then((data) => {
+//     console.log('It worked');
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.log('Error!');
+//     console.log(err);
+//   });
