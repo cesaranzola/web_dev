@@ -27,3 +27,6 @@ const personSchema = new mongoose.Schema({
 personSchema.virtual('fullName').get(function () {
   return `${this.first} ${this.last}`;
 });
+
+//==============Model - Collection===========
+const Person = mongoose.model('Person', personSchema);
