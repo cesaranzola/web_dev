@@ -34,3 +34,33 @@ async function main() {
 //   });
 
 //===============Insert multiple instances method==========
+const seedProducts = [
+  {
+    name: 'Fairy Eggplant',
+    price: 1.0,
+    category: 'vegetable',
+  },
+  {
+    name: 'Organic Goddess Melon',
+    price: 1.0,
+    category: 'fruit',
+  },
+  {
+    name: 'Organic Mini Seedless Watermelon',
+    price: 4.0,
+    category: 'fruit',
+  },
+  {
+    name: 'Organic Celery',
+    price: 3.0,
+    category: 'vegetable',
+  },
+  {
+    name: 'Chocolate Hot Milk',
+    price: 2.0,
+    category: 'dairy',
+  },
+];
+
+//! insertMany - If anything doesn't pass validation, nothing will be inserted
+Product.insertMany(seedProducts);
