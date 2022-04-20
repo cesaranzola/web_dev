@@ -31,9 +31,51 @@ const movieSchema = new mongoose.Schema({
 const Movie = mongoose.model('Movie', movieSchema);
 
 //===============Movie Instance==========
-const amadeus = new Movie({
-  title: 'Amadeus',
-  year: 1986,
-  score: 9.2,
-  rating: 'R',
+//When you define an individual instance, you need to call save
+// const amadeus = new Movie({
+//   title: 'Amadeus',
+//   year: 1986,
+//   score: 9.2,
+//   rating: 'R',
+// });
+
+//==============insertMany()==============
+//Same name method in Mongoose as in MongoDB
+//When you run the insertMany you don't need to call save in order for them to take effect
+Movie.insertMany([
+  {
+    title: 'Amadeus',
+    year: 1986,
+    score: 9.2,
+    rating: 'R',
+  },
+  {
+    title: 'The Godfather',
+    year: 1972,
+    score: 9.5,
+    rating: 'R',
+  },
+  {
+    title: 'Lawrence of Arabia',
+    year: 1950,
+    score: 9.8,
+    rating: 'R',
+  },
+  {
+    title: 'Departures',
+    year: 2007,
+    score: 9.4,
+    rating: 'R',
+  },
+  {
+    title: 'Almost Famous',
+    year: 2000,
+    score: 9.2,
+    rating: 'R',
+  },
+]).then((data) => {
+  console.log('It worked!');
+  console.log(data);
 });
+
+//Most of the time, you add individual objects to your DB, not multiple at once, this is for educational purposes.
