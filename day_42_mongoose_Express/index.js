@@ -17,7 +17,7 @@ const mongoose = require('mongoose', {
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose
-    .connect('mongodb://localhost:27017/shopApp')
+    .connect('mongodb://localhost:27017/farmStand')
     .then(() => {
       console.log('Mongo connection open...');
     })
