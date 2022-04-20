@@ -52,27 +52,73 @@ const productSchema = new mongoose.Schema({
   },
 });
 
+//======================Defining instance methods - local =================
+//====Greet Function
+// productSchema.methods.greet = function () {
+//   console.log('Hello, howdy!');
+//   console.log(` - from ${this.name}`);
+// };
+
+//=====Toggle product onSale on/off
+productSchema.methods.toggleOnSale = function () {
+  this.onSale = !this.onSale;
+  return this.save();
+};
+
+productSchema.methods.addCategory = function (newCat) {
+  this.categories.push(newCat);
+  return this.save();
+};
+
+//======================Defining static methods on the model - global===========
+productSchema.statics.fireSale = function () {
+  return this.updateMany({}, { onSale: true, price: 0 });
+};
+
 //==================Model > (collection)======================
 const Product = mongoose.model('Product', productSchema);
 
+//=================Find Product==================
+// Passing greet function
+// const findProduct = async () => {
+//   const foundProduct = await Product.findOne({ name: 'Horn' });
+//   foundProduct.greet();
+// };
+
+// findProduct();
+
+// Paasing to toggle onSale
+const findProduct = async () => {
+  const foundProduct = await Product.findOne({ name: 'Horn' });
+  console.log(foundProduct);
+  await foundProduct.toggleOnSale();
+  console.log(foundProduct);
+  await foundProduct.addCategory('Gefärlich');
+  console.log(foundProduct);
+};
+
+findProduct();
+
+//================Call to Static method on the model==============
+Product.fireSale().then((res) => console.log(res));
 //===================New Instance===============
-const bike = new Product({
-  name: 'Cycling Jersey',
-  price: 35,
-  onSale: true,
-  categories: ['Cycling', 'Safety', 'Outdoors'],
-  size: 'XS',
-});
-bike
-  .save()
-  .then((data) => {
-    console.log('It worked');
-    console.log(data);
-  })
-  .catch((err) => {
-    console.log('Error!');
-    console.log(err);
-  });
+// const bike = new Product({
+//   name: 'Cycling Jersey',
+//   price: 35,
+//   onSale: true,
+//   categories: ['Cycling', 'Safety', 'Outdoors'],
+//   size: 'S',
+// });
+// bike
+//   .save()
+//   .then((data) => {
+//     console.log('It worked');
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.log('Error!');
+//     console.log(err);
+//   });
 
 // Product.findOneAndUpdate(
 //   {
