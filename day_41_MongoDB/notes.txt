@@ -1,0 +1,3 @@
+MongoDB
+_id: It's known as a primary key - 
+Objectid - Mongo makes this id for us automatically - unique value
