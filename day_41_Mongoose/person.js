@@ -17,3 +17,13 @@ async function main() {
       console.log(err);
     });
 }
+
+//================Schema=====================
+const personSchema = new mongoose.Schema({
+  first: String,
+  last: String,
+});
+
+personSchema.virtual('fullName').get(function () {
+  return `${this.first} ${this.last}`;
+});
