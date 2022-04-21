@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const Product = require('./models/product');
-const methodOverRider = require('method-overrider');
+const methodOverRider = require('method-override');
 
 //=============================================
 //===============Mongoose Start================
@@ -44,6 +44,9 @@ app.get('/products', async (req, res) => {
 	res.render('products/index', {products});
 });
 
+//===============Data categories===================
+const categories = ['fruit', 'vegetable', 'dairy'];
+
 //======================================================
 //If a route goes after get by id route, it bteaks the code
 // Because interprets any additional url as an fake id
@@ -51,7 +54,7 @@ app.get('/products', async (req, res) => {
 
 //==============Create a new product==============
 app.get('/products/new', (req, res) => {
-	res.render('products/new');
+	res.render('products/new', {categories});
 });
 
 app.post('/products', async (req, res) => {
@@ -64,7 +67,16 @@ app.post('/products', async (req, res) => {
 app.get('/products/:id/edit', async (req, res) => {
 	const {id} = req.params;
 	const product = await Product.findById(id);
-	res.render('/products/edit', {product});
+	res.render('products/edit', {product, categories});
+});
+
+app.put('/products/:id', async (req, res) => {
+	const {id} = req.params;
+	const product = await Product.findByIdAndUpdate(id, req.body, {
+		runValidators: true,
+		new: true,
+	});
+	res.redirect(`/products/${product._id}`);
 });
 
 //=============getById===========================
@@ -73,7 +85,12 @@ app.get('/products/:id', async (req, res) => {
 	const product = await Product.findById(id);
 	res.render('products/show', {product});
 });
-//========================================================
+//==============Delete route=======================
+app.delete('/products/:id', async (req, res) => {
+	const {id} = req.params;
+	const deletedProduct = await Product.findByIdAndDelete(id);
+	res.redirect('/products');
+});
 
 //==============Port Listen==========
 app.listen(3000, () => {
