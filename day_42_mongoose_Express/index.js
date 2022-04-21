@@ -40,6 +40,17 @@ app.get('/products', async (req, res) => {
   res.render('products/index', { products });
 });
 
+//=============getById===========================
+app.get('/products/:id', async (req, res) => {
+  const { id } = req.params;
+  const product = await Product.findById(id);
+  res.render('products/show', { product });
+});
+
+//==============Create a new product==============
+app.get('/products/new', (req, res) => {
+  res.render('products/new');
+});
 //==============Port Listen==========
 app.listen(3000, () => {
   console.log('Listening on the port: 3000...');
