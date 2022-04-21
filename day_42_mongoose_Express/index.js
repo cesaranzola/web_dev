@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const Product = require('./models/product');
+const methodOverRider = require('method-overrider');
 
 //=============================================
 //===============Mongoose Start================
@@ -31,6 +32,7 @@ async function main() {
 //==================================================
 
 app.use(express.urlencoded({extended: true}));
+app.use(methodOverRider('_method'));
 
 //=============Views Engine==========
 app.set('view engine', 'ejs');
@@ -56,6 +58,13 @@ app.post('/products', async (req, res) => {
 	const newProduct = new Product(req.body);
 	await newProduct.save();
 	res.redirect(`/products/${newProduct._id}`);
+});
+
+//===============Updating a product===============
+app.get('/products/:id/edit', async (req, res) => {
+	const {id} = req.params;
+	const product = await Product.findById(id);
+	res.render('/products/edit', {product});
 });
 
 //=============getById===========================
