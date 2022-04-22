@@ -38,14 +38,20 @@ app.use(methodOverRider('_method'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
-//=============Basic Route=============
-app.get('/products', async (req, res) => {
-	const products = await Product.find({}); //To Query every product
-	res.render('products/index', {products});
-});
-
 //===============Data categories===================
 const categories = ['fruit', 'vegetable', 'dairy'];
+
+//=============Basic Route=============
+app.get('/products', async (req, res) => {
+	const {category} = req.query;
+	if (category) {
+		const products = await Product.find({category});
+		res.render('products/index', {products, category});
+	} else {
+		const products = await Product.find({}); //To Query every product
+		res.render('products/index', {products, category: 'All'});
+	}
+});
 
 //======================================================
 //If a route goes after get by id route, it bteaks the code
