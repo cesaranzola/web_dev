@@ -12,4 +12,17 @@ Test data:
 § Data 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1.76 m tall.
 */
 
-const test = 34;
+//Define mass and height variables
+let markHeight = 1.69;
+let markMass = 78;
+let markBMI = (markMass / markHeight) ** 2;
+
+let johnHeight = 1.95;
+let johnMass = 92;
+let johnBMI = (johnMass / johnHeight) ** 2;
+
+let markHigherBMI =  markBMI > johnBMI;
+
+console.log(markBMI);
+console.log(johnBMI);
+console.log(markHigherBMI);
