@@ -12,11 +12,11 @@ let johnBMI = johnMass / johnHeight ** 2;
 let markHigherBMI = markBMI > johnBMI;
 
 // Results
-if (markHigherBMI > johnBMI) {
+if (markBMI > johnBMI) {
 	console.log(
 		`Mark's BMI of ${Math.floor(
 			markBMI
-		)} is higher than John's BMI ${Math.floor(johnBMI)}`
+		)} is higher than John's BMI of ${Math.floor(johnBMI)}.`
 	);
 } else {
 	console.log(
