@@ -27,22 +27,32 @@
 // const hasDriversLicense = true; // A
 // const hasGoodVision = false; // B
 // if (hasDriversLicense && hasGoodVision) {
-	// console.log('Sarah can drive.');
+// console.log('Sarah can drive.');
 // } else {
-	// console.log('Someone else should drive.');
+// console.log('Someone else should drive.');
 // }
 
 // Second example
 
+// const hasDriversLicense = true; // A
+// const hasGoodVision = true; // B
+//
+// const isTired = true; // C
+//
+// if (hasDriversLicense && hasGoodVision && isTired) {
+// console.log('Sarah can drive.');
+// } else {
+// console.log('Someone else should drive.');
+// }
 
-const hasDriversLicense = true; // A
-const hasGoodVision = true; // B
+// Third example
 
-const isTired = true; // C
+const hasDriversLicense = true;
+const hasGoodVision = true;
+const isTired = false;
 
-if (hasDriversLicense && hasGoodVision && isTired) {
+if (hasDriversLicense && hasGoodVision && !isTired) {
 	console.log('Sarah can drive.');
 } else {
 	console.log('Someone else should drive.');
 }
-
