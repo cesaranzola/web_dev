@@ -25,7 +25,7 @@ if ((scoreDolphins > scoreKoalas) && (scoreDolphins >= minimumScore)) {
 	(scoreDolphins >= minimumScore) &&
 	(scoreKoalas >= minimumScore)
 ) {
-	console.log(`It was a fierce battle Damen und Herren. It's a draw.`);
+	console.log(`Damen und Herren, it was a fierce battle . It's a draw.`);
 } else {
 	console.log(`Neither team was able to reach the minimum score required to win.`);
 }
