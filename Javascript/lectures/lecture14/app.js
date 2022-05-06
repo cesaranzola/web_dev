@@ -16,3 +16,13 @@ age >= 18
 // A ternary operator is compose of the following: an if operator, true or false value.
 const drink = age >= 18 ? 'Wine' : 'Water';
 console.log(drink);
+
+// A replica of the above example using an if statement
+let drinkZwei;
+if (age >= 18) {
+    drinkZwei = 'Wine';
+} else {
+    drinkZwei = 'Water'
+}
+
+console.log(drinkZwei);
