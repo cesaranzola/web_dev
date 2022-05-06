@@ -1,4 +1,7 @@
 //================= Ternary operator =================
+// The ternary operator is best suited for short decisions, or to embedded inside a template literal
+// We bigger decisions statements you will want to use always the if else statement
+
 // Data 1
 // const age = 23;
 // age >= 18
@@ -26,3 +29,9 @@ if (age >= 18) {
 }
 
 console.log(drinkZwei);
+
+
+// Because the ternary operator is an expression, you can use it inside a template literal
+console.log(`I like to drink ${age >= 18 ? 'Wine' : 'Water' }.`)
+
+
