@@ -32,8 +32,15 @@ const worldPopulation = 7900;
 const populations = [24, 50, 300, 45];
 let percentages = [];
 
-for (let population of populations) {
-	percentages.push((population / worldPopulation) * 100).toFixed(2);
+function percentageOfWorld(value) {
+	return ((value / worldPopulation) * 100).toFixed(2) + '% ';
 }
 
+function addValue() {
+	for (let population of populations) {
+		percentages += percentageOfWorld(population);
+	}
+}
+
+addValue();
 console.log(percentages);
