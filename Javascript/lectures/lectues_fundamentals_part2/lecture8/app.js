@@ -15,6 +15,5 @@ console.log(newLength);
 
 // How to add an element to the start of the array
 // The unshift method also the length of the array
-friends.unshift('Randy');
+friends.unshift('Robert');
 console.log(friends);
-
