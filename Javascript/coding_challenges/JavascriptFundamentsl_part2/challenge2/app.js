@@ -1,5 +1,3 @@
-const {json} = require('express/lib/response');
-
 // ================= Coding challenge 2 =================
 function calcTip(bill) {
 	if (bill >= 50 && bill <= 300) {
@@ -13,12 +11,7 @@ function calcTip(bill) {
 	}
 }
 
-// Function test
-const result = calcTip(100);
-console.log(result);
-
 // Data set arrays
-
 let bills = [125, 555, 44];
 let tipsBills = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 
