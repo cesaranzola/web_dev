@@ -20,6 +20,30 @@ const johnSmith = {
 	},
 };
 
+
+//Data Set 2:
+// const markMiller = {
+// 	firstName: 'Mark',
+// 	lastName: 'Miller',
+// 	mass: 97,
+// 	height: 1.87,
+// 	calcBMI: function () {
+// 		this.bmi = (this.mass / this.height ** 2).toFixed(2);
+// 		return this.bmi;
+// 	},
+// };
+
+// const johnSmith = {
+// 	firstName: 'John',
+// 	lastName: 'Smith',
+// 	mass: 67,
+// 	height: 1.75,
+// 	calcBMI: function () {
+// 		this.bmi = (this.mass / this.height ** 2).toFixed(2);
+// 		return this.bmi;
+// 	},
+// };
+
 markMiller.calcBMI() > johnSmith.calcBMI()
 	? console.log(
 			`${
