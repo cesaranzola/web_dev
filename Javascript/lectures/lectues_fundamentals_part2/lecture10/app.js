@@ -45,5 +45,5 @@ user.friends = ['Loco', 'Tuco', 'Jixi', 'BigPapa'];
 // console.log(user.friends.indexOf('Tuco'));
 
 console.log(
-	`${user.firstName} has ${user.friends.length} friends, and his best friend is ${user.friends[2]}`
+	`${user.firstName} has ${user.friends.length} friends, and his best friend is ${user.friends[2]}.`
 );
