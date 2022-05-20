@@ -12,10 +12,9 @@ const userData = {
 		return this.age; // It's always better to use the 'this' keyword and not hardcode the name of the object
 	},
 	summaryFunc: function () {
-		this.calcAge();
-		return (this.summary = `${this.firstName} ${this.lastName} is a ${
-			this.age
-		}-year old ${this.job}, and she ${
+		return (this.summary = `${this.firstName} ${
+			this.lastName
+		} is a ${this.calcAge()}-year old ${this.job}, and she ${
 			this.hasDriversLicense
 				? "has a driver's license."
 				: "doesn't have a driver's license."
@@ -35,4 +34,3 @@ const userData = {
 // console.log(userData.age);
 
 console.log(userData.summaryFunc());
-console.log(userData.summary);
