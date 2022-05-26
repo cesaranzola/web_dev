@@ -19,3 +19,7 @@ for (let exercise = 1; exercise <= 3; exercise++) {
 		console.log(`Exercise ${exercise}: Lifting weights... Rep ${i}`);
 	}
 }
+
+for (let i = 0; i < user.length; i++) {
+	
+}
