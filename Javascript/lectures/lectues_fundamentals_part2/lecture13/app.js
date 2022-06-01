@@ -28,9 +28,32 @@ const userData = [
 // console.log(userDataTypes);
 
 // Loop through the userDat array - Version 4
-let types = [];
-for (let i = 0; i < userData.length; i++) {
-	types.push(typeof userData[i]);
-}
+// let types = [];
+// for (let i = 0; i < userData.length; i++) {
+// 	types.push(typeof userData[i]);
+// }
 
-console.log(types);
+// console.log(types);
+
+// const years = [1993, 1986, 1990, 1965];
+// const ages = [];
+
+// for (let i = 0; i < years.length; i++) {
+// 	const currentYear = 2056;
+// 	ages.push(currentYear - years[i]);
+// }
+
+// console.log(ages);
+
+// =============== Continue from a loop =============================
+// for (let i = 0; i < userData.length; i++) {
+	// if (typeof userData[i] !== 'string') continue;
+	// console.log(userData[i], typeof userData[i]);
+// }
+
+
+// =============== Break from a loop =============================
+for (let i = 0; i < userData.length; i++) {
+	if (typeof userData[i] !== 'string') continue;
+	console.log(userData[i], typeof userData[i]);
+}
