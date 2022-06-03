@@ -8,3 +8,12 @@ let totals = [];
 function calcTip (bill) {
     return (tips = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20).toFixed(2)
 }
+
+
+for (bill in bills) {
+    tips = calcTip(bill);
+    totals = calcTip(bill) + bill
+}
+
+console.log(tips);
+console.log(totals);
