@@ -54,6 +54,6 @@ const userData = [
 
 // =============== Break from a loop =============================
 for (let i = 0; i < userData.length; i++) {
-	if (typeof userData[i] !== 'string') continue;
+	if (typeof userData[i] === 'number') break;
 	console.log(userData[i], typeof userData[i]);
 }
