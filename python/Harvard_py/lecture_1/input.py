@@ -21,4 +21,9 @@
 
 # Another pythonic way to print a string
 name = input("What's your name? ")
+
+# How to remove whitespace from the string
+name = name.strip()
+
+
 print(f"Hello, {name}")
