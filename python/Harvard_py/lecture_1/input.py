@@ -20,16 +20,22 @@
 
 
 # Another pythonic way to print a string
-name = input("What's your name? ")
+# name = input("What's your name? ")
 
-# How to remove whitespace from the string
-name = name.strip()
+# # How to remove whitespace from the string
+# name = name.strip()
 
-# Capitalize user's name
-name = name.capitalize()
+# # Capitalize user's name
+# name = name.capitalize()
 
 
-# Capitalize each input word
-name = name.title()
+# # Capitalize each input word
+# name = name.title()
+
+# print(f"Hello, {name}")
+
+
+# Second iteration
+name = input("What's your name? ").strip().title()
 
 print(f"Hello, {name}")
