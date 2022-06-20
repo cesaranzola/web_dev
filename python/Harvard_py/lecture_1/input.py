@@ -3,4 +3,10 @@ name = input("What's your name? ")
 # print("Hello, " + name)
 
 # Alternative print version
-print("Hello,", name)
+# print("Hello,", name)
+
+# How to modify the default behavior of the print function
+print("Hello, ", end="") # End modifies the default behavior of printing a new line, it does nothing instead
+print(name)
+
+
