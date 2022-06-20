@@ -1,5 +1,5 @@
 # Ask use for name
-name = input("What's your name? ")
+# name = input("What's your name? ")
 # print("Hello, " + name)
 
 # Alternative print version
@@ -11,5 +11,10 @@ name = input("What's your name? ")
 
 # Print sep parameter
 # It changes the single space separator for a double question mark
-print("Hello,", name, sep="??")
+# In Python you have positional parameters, they are executed in the same order you wrote them, on the contrary, named parameters can be added at the end of the function
+# print("Hello,", name, sep="??")
+
+
+# How to scape characters in a string
+print("Hello, \"friend\"")
 
