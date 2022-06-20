@@ -16,5 +16,9 @@
 
 
 # How to scape characters in a string
-print("Hello, \"friend\"")
+# print("Hello, \"friend\"")
 
+
+# Another pythonic way to print a string
+name = input("What's your name? ")
+print(f"Hello, {name}")
