@@ -25,5 +25,11 @@ name = input("What's your name? ")
 # How to remove whitespace from the string
 name = name.strip()
 
+# Capitalize user's name
+name = name.capitalize()
+
+
+# Capitalize each input word
+name = name.title()
 
 print(f"Hello, {name}")
