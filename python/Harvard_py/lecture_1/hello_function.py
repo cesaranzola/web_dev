@@ -14,15 +14,33 @@
 # hello(name)
 
 # Calling functions inside another functions
-def main():
-    name = input("What's your name? ")
-    hello(name)
+# def main():
+    # name = input("What's your name? ")
+    # hello(name)
+# 
+# def hello(to="World"):
+    # print("Hello,", to)
+# 
+# main()
 
-def hello(to="World"):
-    print("Hello,", to)
+
+def main():
+    x = int(input("What's your name? "))
+    print("x squared is:", square(x))
+    
+# Version 1    
+# def square(n):
+    # return n ** 2
+
+# Version 2
+# def square(n):
+    # return n * n
+
+# Version 3
+def square(n):
+    return pow(n, 2)
 
 main()
-
 
 
 
