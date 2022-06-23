@@ -4,7 +4,12 @@
 # print(students[2])
 
 # List using a for loop
+# students = ["Hermione", "Harry", "Ron"]
+# for student in students:
+    # print(student)
+
+# List and len method
 students = ["Hermione", "Harry", "Ron"]
-for student in students:
-    print(student)
+for i in range(len(students)):
+    print(i + 1, students[i])
 
