@@ -20,6 +20,19 @@
 # =================================================================
 # ========================== Dictionaries =========================
 
+# students = {
+    # "Hermione": "Gryffindor",
+    # "Harry": "Gryffindor",
+    # "Ron": "Gryffindor",
+    # "Draco": "Slytherin",
+# }
+# 
+# print(students["Hermione"])
+# print(students["Harry"])
+# print(students["Ron"])
+# print(students["Draco"])
+
+
 students = {
     "Hermione": "Gryffindor",
     "Harry": "Gryffindor",
@@ -27,11 +40,9 @@ students = {
     "Draco": "Slytherin",
 }
 
-print(students["Hermione"])
-print(students["Harry"])
-print(students["Ron"])
-print(students["Draco"])
-
+# If you loop through a dict, it will print the keys
+for student in students:
+    print(student)
 
 
 
