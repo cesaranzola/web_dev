@@ -9,7 +9,11 @@
     # print(student)
 
 # List and len method
+# students = ["Hermione", "Harry", "Ron"]
+# for i in range(len(students)):
+    # print(i + 1, students[i])
+
+# Hardcoded example
 students = ["Hermione", "Harry", "Ron"]
-for i in range(len(students)):
-    print(i + 1, students[i])
+houses = ["Gryffindor", "Gryffindor", "Gryffindor", "Slytherin"]
 
