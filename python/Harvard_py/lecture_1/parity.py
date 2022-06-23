@@ -23,6 +23,19 @@
     
     
 # Second iteration 
+# def main():
+    # x = int(input("What's x? "))
+    # if is_even(x):
+        # print("Even")
+    # else:
+        # print("Odd")
+        # 
+# def is_even(num):
+    # return True if num % 2 == 0 else False
+    # 
+# main()
+
+# Third iteration
 def main():
     x = int(input("What's x? "))
     if is_even(x):
@@ -31,6 +44,7 @@ def main():
         print("Odd")
         
 def is_even(num):
-    return True if num % 2 == 0 else False
-    
+    return num % 2 == 0
+
 main()
+
