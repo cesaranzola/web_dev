@@ -33,15 +33,27 @@
 # print(students["Draco"])
 
 
-students = {
-    "Hermione": "Gryffindor",
-    "Harry": "Gryffindor",
-    "Ron": "Gryffindor",
-    "Draco": "Slytherin",
-}
+# students = {
+    # "Hermione": "Gryffindor",
+    # "Harry": "Gryffindor",
+    # "Ron": "Gryffindor",
+    # "Draco": "Slytherin",
+# }
+# 
+#If you loop through a dict, it will print the keys
+# for student in students:
+    # print(student, students[student], sep=", ")
 
-# If you loop through a dict, it will print the keys
+
+# A list of dicts 
+students = [
+    { "name": "Hermione", "house": "Gryffindor", "patronus": "Otter"},
+    { "name": "Harry", "house": "Gryffindor", "patronus": "Stag"},
+    { "name": "Ron", "house": "Gryffindor", "patronus": "Jack Russell Terrier"},
+    { "name": "Draco", "house": "Slytherin", "patronus": "None"},
+]
+
 for student in students:
-    print(student, students[student], sep=", ")
+    print(student["name"], student["house"], student["patronus"])
     
 
