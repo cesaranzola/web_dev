@@ -17,4 +17,15 @@
     # print("meow")
     
 # Pythonic way 
-print("meow\n" * 3, end="")
+# print("meow\n" * 3, end="")
+
+# While True example
+while True:
+    n = int(input("What's n? "))
+    if n > 0:
+        break
+
+for _ in range(n):
+    print("meow")
+    
+    
