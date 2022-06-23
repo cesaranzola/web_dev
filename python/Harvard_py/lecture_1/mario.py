@@ -56,3 +56,7 @@ def print_row(width):
     print("#" * width)
 
 main()
+
+
+# It is considered best practice to only return a function at the bottom of it
+# If you return the function from an arbitrary position it can be frown upon 
