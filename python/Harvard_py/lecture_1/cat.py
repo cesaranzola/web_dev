@@ -13,6 +13,8 @@
     # print("meow")
     
 # for loop using range function
-for _ in range(3):
-    print("meow")
+# for _ in range(3):
+    # print("meow")
     
+# Pythonic way 
+print("meow\n" * 3, end="")
