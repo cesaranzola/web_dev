@@ -42,8 +42,6 @@ students = {
 
 # If you loop through a dict, it will print the keys
 for student in students:
-    print(student)
-
-
-
+    print(student, students[student], sep=", ")
+    
 
