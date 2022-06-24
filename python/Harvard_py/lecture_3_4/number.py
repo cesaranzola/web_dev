@@ -33,7 +33,7 @@
 # 
 # def get_int():
     # while True:
-        # try:
+        # try: # Statement 
             # x = int(input("What's x? "))
         # except ValueError:
             # print('It is not an integer.')
@@ -45,6 +45,37 @@
 
 
 # Return the function without using the break keyword
+# def main():
+    # x = get_int()
+    # print(f"x is {x}")
+# 
+# def get_int():
+    # while True:
+        # try:
+            # x = int(input("What's x? "))
+        # except ValueError:
+            # print('It is not an integer.')
+        # else:
+            # return x
+    # 
+# main()
+
+# Refinements
+# def main():
+    # x = get_int()
+    # print(f"x is {x}")
+# 
+# def get_int():
+    # while True:
+        # try:
+            # return int(input("What's x? "))
+        # except ValueError:
+            # print('x is not an integer')
+# 
+# main()
+
+
+# Using the pass keyword
 def main():
     x = get_int()
     print(f"x is {x}")
@@ -52,10 +83,8 @@ def main():
 def get_int():
     while True:
         try:
-            x = int(input("What's x? "))
+            return int(input("What's x? "))
         except ValueError:
-            print('It is not an integer.')
-        else:
-            return x
-    
+            pass
+
 main()
