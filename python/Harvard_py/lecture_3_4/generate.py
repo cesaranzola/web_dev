@@ -14,5 +14,14 @@
 
 import random 
 
-number = random.randint(1, 100)
-print(number)
+# number = random.randint(1, 100)
+# print(number)
+
+
+# Shuffle - a function to randomize a list of values
+
+cards = ["king", "queen", "jack"]
+random.shuffle(cards)
+for card in cards:
+    print(card)
+
