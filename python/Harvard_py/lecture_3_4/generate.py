@@ -1,4 +1,10 @@
-import random
+# import random
+# 
+# coin = random.choice(["heads", "tails"])
+# print(coin)
 
-coin = random.choice(["heads", "tails"])
+# how to import an specific function from a module?
+from random import choice
+
+coin = choice(["heads", "tails"])
 print(coin)
