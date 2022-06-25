@@ -51,12 +51,22 @@
 
 # You can pass the argv inside a string, so the program counts it as only one element
 
-import sys 
+# import sys 
 # Check for errors
-if len(sys.argv) < 2:
-    print("Too few arguments.")
-elif len(sys.argv) > 2:
-    print("Too many arguments.")
-
+# if len(sys.argv) < 2:
+    # print("Too few arguments.")
+# elif len(sys.argv) > 2:
+    # print("Too many arguments.")
+# 
 # Print name tags
+# print("Hello, my name is " + str(sys.argv[1]))
+
+import sys
+
+if len(sys.argv) < 2:
+    sys.exit("Too few arguments.")
+elif len(sys.argv) > 2:
+    sys.exit("Too many arguments.")
+
 print("Hello, my name is " + str(sys.argv[1]))
+
