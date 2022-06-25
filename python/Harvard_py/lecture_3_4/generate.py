@@ -30,6 +30,13 @@
 # 
 # print(statistics.mean([90, 100]))
 
-import sys
+# import sys
+# 
+# print("Hello, my name is " + str(sys.argv[1]))
 
-print("Hello, my name is " + str(sys.argv[1]))
+import sys
+try:
+    print("Hello, my name is " + str(sys.argv[1]))
+except IndexError:
+    print("Too few arguments.")
+    
