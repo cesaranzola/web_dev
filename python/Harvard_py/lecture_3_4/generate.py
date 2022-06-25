@@ -12,7 +12,7 @@
 # print(coin)
 
 
-import random 
+# import random 
 
 # number = random.randint(1, 100)
 # print(number)
@@ -20,8 +20,16 @@ import random
 
 # Shuffle - a function to randomize a list of values
 
-cards = ["king", "queen", "jack"]
-random.shuffle(cards)
-for card in cards:
-    print(card)
+# cards = ["king", "queen", "jack"]
+# random.shuffle(cards)
+# for card in cards:
+    # print(card)
 
+
+# import statistics
+# 
+# print(statistics.mean([90, 100]))
+
+import sys
+
+print("Hello, my name is " + str(sys.argv[1]))
