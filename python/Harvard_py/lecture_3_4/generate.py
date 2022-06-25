@@ -78,9 +78,33 @@
 # for arg in sys.argv:
     # print("Hello, my name is ", arg)
     
-import sys 
-if len(sys.argv) < 2:
-    sys.exit("Too many arguments.")
+# import sys 
+# if len(sys.argv) < 2:
+    # sys.exit("Too many arguments.")
+# 
+# for arg in sys.argv[1:]:
+    # print("Hello, my name is ", arg)
 
-for arg in sys.argv[1:]:
-    print("Hello, my name is ", arg)
+# import sys
+# import requests
+# 
+# if len(sys.argv) != 2:
+    # sys.exit()
+# 
+# response =  requests.get("http://itunes.apple.com/search?entity=song&limit=1&term=" + sys.argv[1])
+# Python prints the return value as a json file
+# print(response.json())
+
+
+import sys
+import requests
+import json
+
+if len(sys.argv) != 2:
+    sys.exit()
+
+response =  requests.get("http://itunes.apple.com/search?entity=song&limit=1&term=" + sys.argv[1])
+
+print(json.dumps(response.json(), indent=2))
+
+
