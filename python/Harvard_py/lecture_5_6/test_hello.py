@@ -8,3 +8,4 @@ def test_argument():
     assert hello("Cesar") == "hello, Cesar"
 
 # Your unit test should be short and sweet, otherwise you can generate bugs inside your tests
+c
