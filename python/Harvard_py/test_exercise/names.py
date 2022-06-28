@@ -18,7 +18,17 @@
 # file.close()
 
 
+# name = input("What's your name? ")
+# file = open("names.txt", 'a')
+# file.write(f"{name}\n")
+# file.close()
+
+
+# =================================================================
+# ========================= With statement ====================
+
 name = input("What's your name? ")
-file = open("names.txt", 'a')
-file.write(f"{name}\n")
-file.close()
+# With keyword allow us to open and close a file immediately after execution
+with open("names.txt", 'a') as file:
+    file.write(f"{name}\n")
+
