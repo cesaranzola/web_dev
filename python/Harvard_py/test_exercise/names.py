@@ -35,10 +35,27 @@
 
 # Only read a file 
 # name = input("What's your name? ")
-with open("names.txt", 'r') as file:
-    lines = file.readlines()
-
-for line in lines:
-    print(f"Hello,", line.rstrip())
+# with open("names.txt", 'r') as file:
+    # lines = file.readlines()
+# 
+# for line in lines:
+    # print(f"Hello,", line.rstrip())
         
 
+
+# Looped and sorted
+
+names = []
+
+# "r" is the default behavior of open file, so you don't have to specify it
+with open("names.txt") as file:
+    for line in file:
+        names.append(line.rstrip())
+
+for name in sorted(names):
+    print(f"Hello, {name}")
+    
+    
+    
+
+    
