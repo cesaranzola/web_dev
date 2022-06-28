@@ -49,14 +49,41 @@
     
     
 
+# students = []
+# with open("students.csv") as file:
+#     for line in file:
+#         name, house = line.rstrip().split(",")
+#         student = {"name": name, "house": house}
+#         students.append(student)
+
+
+# # When yoy have a anonymous function you use the lambda keyword
+# for student in sorted(students, key=lambda student: student["name"]):
+#     print(f"{student['name']} is in {student['house']}")
+
+
+
+
+# students = []
+# with open("students.csv") as file:
+    # for line in file:
+        # name, home = line.rstrip().split(",")
+        # student = {"name": name, "home": home}
+        # students.append(student)
+    # 
+# for student in sorted(students, key=lambda student: student["name"]):
+    # print(f"{student['name']} is from  {student['home']}")
+
+
+import csv
+
 students = []
+
 with open("students.csv") as file:
-    for line in file:
-        name, house = line.rstrip().split(",")
-        student = {"name": name, "house": house}
-        students.append(student)
+    reader = csv.reader(file)
+    for row in reader:
+        students.append({"name": row[0], "home": home})
+        
+for student in sorted(students, key=lambda student: student["name"])
+    print(f"{student['name']} is from {student['home']}")
 
-
-# When yoy have a anonymous function you use the lambda keyword
-for student in sorted(students, lambda student: student["name"]):
-    print(f"{student['name']} is in {student['house']}")
