@@ -27,8 +27,18 @@
 # =================================================================
 # ========================= With statement ====================
 
-name = input("What's your name? ")
+# name = input("What's your name? ")
 # With keyword allow us to open and close a file immediately after execution
-with open("names.txt", 'a') as file:
-    file.write(f"{name}\n")
+# with open("names.txt", 'a') as file:
+    # file.write(f"{name}\n")
+
+
+# Only read a file 
+# name = input("What's your name? ")
+with open("names.txt", 'r') as file:
+    lines = file.readlines()
+
+for line in lines:
+    print(f"Hello,", line.rstrip())
+        
 
