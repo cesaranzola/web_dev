@@ -46,10 +46,22 @@
 # else:
     # print("Invalid")
     
+# import re
+# email = input("Please enter your email address: ").strip()
+# 
+# if re.search("^[^]+@[^@]+\.edu$", email):
+    # print("Valid")
+# else:
+    # print("Invalid")
+    
+
 import re
 email = input("Please enter your email address: ").strip()
 
-if re.search("^[^]+@[^@]+\.edu$", email):
+if re.search("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.edu$", email):
     print("Valid")
 else:
     print("Invalid")
+    
+
+
