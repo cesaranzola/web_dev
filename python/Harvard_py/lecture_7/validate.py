@@ -55,13 +55,47 @@
     # print("Invalid")
     
 
+# import re
+# email = input("Please enter your email address: ").strip()
+# 
+# if re.search("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.edu$", email):
+    # print("Valid")
+# else:
+    # print("Invalid")
+    
+
+# import re
+# email = input("Please enter your email address: ").strip()
+# 
+#\w represents alpha-numeric characters and underscore
+# if re.search("^\w+@\w+\.(edu|com|gov|net|org)$", email):
+    # print("Valid")
+# else:
+    # print("Invalid")
+
+# import re
+# email = input("Please enter your email address: ").strip()
+# 
+#\w represents alpha-numeric characters and underscore
+# if re.search("^\w+@\w+\.(edu|com|gov|net|org)$", email, re.IGNORECASE):
+    # print("Valid")
+# else:
+    # print("Invalid")   
+
+# import re
+# email = input("Please enter your email address: ").strip()
+# 
+#\w represents alpha-numeric characters and underscore
+# if re.search("^\w+@(\w+\.)?\w+\.edu$", email, re.IGNORECASE):
+    # print("Valid")
+# else:
+    # print("Invalid")      
+    
 import re
 email = input("Please enter your email address: ").strip()
 
-if re.search("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.edu$", email):
+# \w represents alpha-numeric characters and underscore
+if re.search("^(\w|\.)+@(\w+\.)?\w+\.edu$", email, re.IGNORECASE):
     print("Valid")
 else:
-    print("Invalid")
-    
-
-
+    print("Invalid")      
