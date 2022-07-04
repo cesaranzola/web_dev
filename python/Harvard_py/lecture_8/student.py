@@ -45,7 +45,7 @@ class Student():
         self.house = house
         
     def __str__(self):
-        return "A student"
+        return f"{self.name} from {self.house}"
 # class Student:
 def main():
     student = get_student()
