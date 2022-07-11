@@ -14,7 +14,7 @@ x_i = x_train[i]
 y_i = y_train[i]
 
 # Weight and bias parameters as scalar
-w = 100
+w = 200
 b = 100
 
 # Model linear regression function 
