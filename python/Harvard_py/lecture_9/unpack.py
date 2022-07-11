@@ -1,9 +1,8 @@
-def total(galleons, sickles, knuts):
-    return (galleons * 17 + sickles) * 29 + knuts
+# args is use for positional arguments = numbers divide by commas
+# kwargs are used for keyword arguments = name of the parameter equal to some value
 
-coins = {"galleons": 100, "sickles": 50, "knuts": 25}
-
-print(total(coins["galleons"], coins["sickles"], coins["knuts"]), "Knuts")
-
-
-
+# Variatic functions
+def f(*args, **kwargs):
+    print("Positional:", args)
+    
+f(100, 50, 25)
