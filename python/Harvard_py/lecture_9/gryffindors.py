@@ -1,20 +1,5 @@
-students = [
-    {"name": "Hermione", "house": "Gryffindor",},
-    {"name": "Harry", "house": "Gryffindor",},
-    {"name": "Ron", "house": "Gryffindor",},
-    {"name": "Draco", "house": "Slytherin",},
-]
+students = ["Hermione", "Harry", "Ron"]
 
-
-
-
-gryffindors = filter(lambda s: s["house"] == "Gryffindor", students)
-
-for gryffindor in sorted(gryffindors, key=lambda s: s["name"]):
-    print(gryffindor["name"])
+gryffindors = {student: "Gryffindor" for student in students}
     
-
-
-
-
-
+print(gryffindors)
